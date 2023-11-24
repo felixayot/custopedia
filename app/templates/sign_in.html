@@ -6,31 +6,31 @@
         <div class="form-group">
             {{ form.username.label(class="form-control-label") }}
             {% if form.username.errors %}
-                {{ form.username(class="form-control form-control-lg is-invalid") }}
-                <div class="invalid-feedback">
-                    {% for error in form.username.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
+            {{ form.username(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.username.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
             {% else %}
-                {{ form.username(class="form-control form-control-lg") }}
+            {{ form.username(class="form-control form-control-lg") }}
             {% endif %}
         </div><br>
 
         <div class="form-group">
             {{ form.password.label(class="form-control-label") }}
             {% if form.password.errors %}
-                {{ form.password(class="form-control form-control-lg is-invalid") }}
-                <div class="invalid-feedback">
-                    {% for error in form.password.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
+            {{ form.password(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.password.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
             {% else %}
-                {{ form.password(class="form-control form-control-lg") }}
+            {{ form.password(class="form-control form-control-lg") }}
             {% endif %}
         </div><br>
-        
+
         <div class="form-check">
             {{ form.remember_me(class="form-check-input") }}
             {{ form.remember_me.label(class="form-check-label") }}
@@ -45,8 +45,8 @@
 </form>
 </div>
 <div class="border-top pt-3">
-<small class="text-muted">
-Not yet registered?<a class="ml-2" href="{{ url_for('users.register') }}">Sign Up here</a>
-</small>
+    <small class="text-muted">
+        Not yet registered?<a class="ml-2" href="{{ url_for('users.register') }}">Sign Up here</a>
+    </small>
 </div><br>
 {% endblock %}

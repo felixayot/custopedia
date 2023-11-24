@@ -11,45 +11,45 @@
   </div>
   <div>{{ ticket.description }}<br /></div>
   {% for ut in ticket.updated %}
-    <div>
-      <b>On {{ ut.updated_at.strftime("%a, %d %b %Y %H:%M") }}, you
-        updated:</b>
-    </div><br>
-    <div>
-      {{ ut.description }}</div><br>
-    {% endfor %}
-    {% else %}
-    <div>
-      <b>On {{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}, you
-        wrote:</b><br />
-    </div>
-    <div>{{ ticket.description }}</div><br>
-    {% endif %}
-    <a href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}">Update</a>
-    <a href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}">Close</a>
+  <div>
+    <b>On {{ ut.updated_at.strftime("%a, %d %b %Y %H:%M") }}, you
+      updated:</b>
+  </div><br>
+  <div>
+    {{ ut.description }}</div><br>
+  {% endfor %}
+  {% else %}
+  <div>
+    <b>On {{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}, you
+      wrote:</b><br />
+  </div>
+  <div>{{ ticket.description }}</div><br>
+  {% endif %}
+  <a href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}">Update</a>
+  <a href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}">Close</a>
 
-    <div>
-      <ul>
-        <li>
-          <b>Your Email address(Where we send feedbacks to your tickets):</b>&emsp;{{ ticket.owner.email }}
-        </li>
-        <li><b>Status:</b>&emsp;{{ ticket.status }}</li>
-        {% if ticket.updated %}
-        <li>
-          <b>Created:</b>&emsp;{{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}
-        </li>
-        <li>
-          <b>Updated:</b>&emsp;{{ ticket.updated[-1].updated_at.strftime("%a, %d %b %Y %H:%M") }}
-        </li>
-        {% else %}
-        <li>
-          <b>Created:</b>&emsp;{{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}
-        </li>
-        {% endif %}
-        <li><b>Product:</b>&emsp;{{ ticket.product }}</li>
-        <li><b>Product category:</b>&emsp;{{ ticket.product_category }}</li>
-        <li><b>Incident type:</b>&emsp;{{ ticket.incident_type }}</li>
-      </ul>
-    </div>
+  <div>
+    <ul>
+      <li>
+        <b>Your Email address(Where we send feedbacks to your tickets):</b>&emsp;{{ ticket.owner.email }}
+      </li>
+      <li><b>Status:</b>&emsp;{{ ticket.status }}</li>
+      {% if ticket.updated %}
+      <li>
+        <b>Created:</b>&emsp;{{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}
+      </li>
+      <li>
+        <b>Updated:</b>&emsp;{{ ticket.updated[-1].updated_at.strftime("%a, %d %b %Y %H:%M") }}
+      </li>
+      {% else %}
+      <li>
+        <b>Created:</b>&emsp;{{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}
+      </li>
+      {% endif %}
+      <li><b>Product:</b>&emsp;{{ ticket.product }}</li>
+      <li><b>Product category:</b>&emsp;{{ ticket.product_category }}</li>
+      <li><b>Incident type:</b>&emsp;{{ ticket.incident_type }}</li>
+    </ul>
+  </div>
 </section>
 {% endblock %}

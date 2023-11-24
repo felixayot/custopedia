@@ -3,30 +3,30 @@
 <table class="table-info table-bordered">
   <thead>
     <tr>
-    <th class="table-info">Ticket Number</th>
+      <th class="table-info">Ticket Number</th>
 
-    <th class="table-info">Title</th>
+      <th class="table-info">Title</th>
 
-    <th class="table-info">Status</th>
+      <th class="table-info">Status</th>
 
-    <th class="table-info">Date created</th>
+      <th class="table-info">Date created</th>
     </tr>
   </thead>
   <tbody>
-  {% for t in current_user.tickets %}
-  <tr>
-    <td class="table-info">{{ t.id }}</td>
+    {% for t in current_user.tickets %}
+    <tr>
+      <td class="table-info">{{ t.id }}</td>
 
-    <td class="table-info"><a href="{{ url_for('tickets.view_ticket', ticket_id=t.id) }}">{{ t.title }}</a></td>
+      <td class="table-info"><a href="{{ url_for('tickets.view_ticket', ticket_id=t.id) }}">{{ t.title }}</a></td>
 
-    <td class="table-info">{{ t.status }}</td>
+      <td class="table-info">{{ t.status }}</td>
 
-    {% if t.created_at %}
-    <td>{{ t.created_at.strftime('%m-%d-%Y') }}</td>
-    {% else %}
-    <td>{{ t.updated_at.strftime('%m-%d-%Y') }}</td>
-    {% endif %} {% endfor %}
-  </tr>
+      {% if t.created_at %}
+      <td>{{ t.created_at.strftime('%m-%d-%Y') }}</td>
+      {% else %}
+      <td>{{ t.updated_at.strftime('%m-%d-%Y') }}</td>
+      {% endif %} {% endfor %}
+    </tr>
   </tbody>
 </table>
 <br>

@@ -1,5 +1,5 @@
 # Ignore these files, directories, sub-driectories and files there in
-custvenv/
+custenv/
 .env
 __pycache__/
 tmp/

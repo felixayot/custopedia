@@ -1,53 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  {% if title %}
-  <title>{{ title }}</title>
-  {% else %}
-  <title>Welcome to Custopedia!</title>
-  {% endif %}
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <div class="sticky-top left"><b>Custopedia</b></div>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styling.css') }}" />
-
-  <div class="p-3 mb-2 bg-dark-subtle text-emphasis-dark">
-    <a class="btn btn-primary" href="{{ url_for('main.home') }}" role="button">Home</a>
-
-    {% if current_user.is_anonymous %}
-    <a class="btn btn-primary" href="{{ url_for('tickets.new_ticket') }}" role="button">Create a Ticket</a>
-
-    <a class="btn btn-primary" href="{{ url_for('users.sign_in') }}" role="button">Sign in</a>
-
-    <a class="btn btn-primary" href="{{ url_for('users.register') }}" role="button">Register</a>
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% if title %}
+    <title>{{ title }}</title>
     {% else %}
-    <a class="btn btn-primary" href="{{ url_for('tickets.new_ticket') }}" role="button">Create a Ticket</a>
-
-    <a class="btn btn-primary" href="{{ url_for('tickets.ticket_history') }}" role="button">Ticket history</a>
-
-    <a class="btn btn-primary" href="{{ url_for('users.sign_out') }}" role="button">Sign out</a>
+    <title>Welcome to Custopedia!</title>
     {% endif %}
-  </div>
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <div class="sticky-top left"><b>Custopedia</b></div>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles/styling.css') }}"
+    />
 
-<body>
-  <hr />
-  {% with messages = get_flashed_messages() %} {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %} {% endwith %} {% block content %}{% endblock %}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-</body>
-<!--<footer>
+    <div class="p-3 mb-2 bg-dark-subtle text-emphasis-dark">
+      <a class="btn btn-primary" href="{{ url_for('main.home') }}" role="button"
+        >Home</a
+      >
+
+      {% if current_user.is_anonymous %}
+      <a
+        class="btn btn-primary"
+        href="{{ url_for('tickets.new_ticket') }}"
+        role="button"
+        >Create a Ticket</a
+      >
+
+      <a
+        class="btn btn-primary"
+        href="{{ url_for('users.sign_in') }}"
+        role="button"
+        >Sign in</a
+      >
+
+      <a
+        class="btn btn-primary"
+        href="{{ url_for('users.register') }}"
+        role="button"
+        >Register</a
+      >
+
+      {% else %}
+      <a
+        class="btn btn-primary"
+        href="{{ url_for('tickets.new_ticket') }}"
+        role="button"
+        >Create a Ticket</a
+      >
+
+      <a
+        class="btn btn-primary"
+        href="{{ url_for('tickets.ticket_history') }}"
+        role="button"
+        >Ticket history</a
+      >
+
+      <a
+        class="btn btn-primary"
+        href="{{ url_for('users.sign_out') }}"
+        role="button"
+        >Sign out</a
+      >
+      {% endif %}
+    </div>
+  </head>
+
+  <body>
+    <hr />
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %} {% block content %}{% endblock %}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <!--<footer>
 <style> footer {
     align-items: center;
     background-color: #005780;
@@ -66,5 +107,4 @@
     </p>
   </div>
 </footer>-->
-
 </html>
