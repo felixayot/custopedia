@@ -1,0 +1,7 @@
+# Ignore these files, directories, sub-driectories and files there in
+custvenv/
+.env
+__pycache__/
+tmp/
+dropdb
+migratedb
