@@ -1,73 +1,88 @@
 {% extends 'base.html' %} {% block content %}
 <h1>Create your ticket</h1>
 <form action="" method="POST" validate>
-    {{ form.hidden_tag() }}
+  {{ form.hidden_tag() }}
 
-    <div class="form-group">
-        {{ form.title.label(class="form-control-label") }}
-        {% if form.title.errors %}
-        {{ form.title(class="form-control form-control-lg is-invalid") }}
-        <div class="invalid-feedback">
-            {% for error in form.title.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-        </div>
-        {% else %}
-        {{ form.title(class="form-control form-control-lg") }}
-        {% endif %}
-    </div><br>
-
-    <div>
-        <select name="incident_type">
-            <option selected>{{ form.incident_type.label }}</option>
-            {% for choice in form.incident_type.choices %}
-            <option>{{ choice }}</option>
-            {% endfor %}
-        </select>
-    </div><br>
-    <div>
-        <select name="product">
-            <option selected>{{ form.product.label }}</option>
-            {% for choice in form.product.choices %}
-            <option>{{ choice }}</option>
-            {% endfor %}
-        </select>
-    </div><br>
-    <div>
-        <select name="product_category">
-            <option selected>{{ form.product_category.label }}</option>
-            {% for choice in form.product_category.choices %}
-            <option>{{ choice }}</option>
-            {% endfor %}
-        </select>
-    </div><br>
-
-    <div class="form-group">
-        {{ form.description.label(class="form-control-label") }}
-        {% if form.description.errors %}
-        {{ form.description(class="form-control form-control-lg is-invalid") }}
-        <div class="invalid-feedback">
-            {% for error in form.description.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-        </div>
-        {% else %}
-        {{ form.description(class="form-control form-control-lg") }}
-        {% endif %}
-    </div><br>
-
-    <div class="form-group">
-        {{ form.file_attachments.label() }}<br>
-        {{ form.file_attachments(class="form-control-file") }}
-        {% if form.file_attachments.errors %}
-        {% for error in form.file_attachments.errors %}
-        <span class="text-danger">{{ error }}</span><br>
-        {% endfor %}
-        {% endif %}<br>
-        <alert>For several files, please upload a combined copy of all of them as one document.</alert><br />
+  <div class="form-group" style="margin-left: 2em; margin-right: 50em">
+    {{ form.title.label(class="form-control-label") }} {% if form.title.errors
+    %} {{ form.title(class="form-control form-control-lg is-invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.title.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
     </div>
-    <div class="form-group">
-        {{ form.submit(class="btn btn-outline-info") }}
+    {% else %} {{ form.title(class="form-control form-control-lg") }} {% endif
+    %}
+  </div>
+  <br />
+
+  <div style="margin-left: 2em; margin-right: 30em">
+    <select
+      name="incident_type"
+      style="border-radius: 10px; width: 32.5em; height: 3em"
+    >
+      <option selected>{{ form.incident_type.label }}</option>
+      {% for choice in form.incident_type.choices %}
+      <option>{{ choice }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <br />
+  <div style="margin-left: 2em; margin-right: 30em">
+    <select
+      name="product"
+      style="border-radius: 10px; width: 32.5em; height: 3em"
+    >
+      <option selected>{{ form.product.label }}</option>
+      {% for choice in form.product.choices %}
+      <option>{{ choice }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <br />
+  <div style="margin-left: 2em; margin-right: 30em">
+    <select
+      name="product_category"
+      style="border-radius: 10px; width: 32.5em; height: 3em"
+    >
+      <option selected>{{ form.product_category.label }}</option>
+      {% for choice in form.product_category.choices %}
+      <option>{{ choice }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <br />
+
+  <div class="form-group" style="margin-left: 2em; margin-right: 30em">
+    {{ form.description.label(class="form-control-label") }}<br />
+    <alert class="text-info bg-dark">Include as many details as possible.</alert
+    ><br />
+    {% if form.description.errors %} {{ form.description(class="form-control
+    form-control-lg is-invalid") }}
+    <div class="invalid-feedback">
+      {% for error in form.description.errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
     </div>
+    {% else %} {{ form.description(class="form-control form-control-lg") }} {%
+    endif %}
+  </div>
+  <br />
+
+  <div class="form-group" style="margin-left: 2em">
+    {{ form.file_attachments.label() }}<br />
+    {{ form.file_attachments(class="form-control-file") }} {% if
+    form.file_attachments.errors %} {% for error in form.file_attachments.errors
+    %}
+    <span class="text-danger">{{ error }}</span><br />
+    {% endfor %} {% endif %}<br />
+    <alert class="text-info bg-dark"
+      >For several files, please upload a combined copy of all of them as one
+      document.</alert
+    ><br />
+  </div>
+  <div class="form-group" style="margin-left: 2em">
+    {{ form.submit(class="btn btn-outline-info") }}
+  </div>
 </form>
 {% endblock %}

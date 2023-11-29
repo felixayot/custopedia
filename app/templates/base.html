@@ -3,74 +3,98 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% if title %}
-    <title>{{ title }}</title>
-    {% else %}
-    <title>Welcome to Custopedia!</title>
-    {% endif %}
+    <link rel="icon" href="../static/images/icon_2.png" />
+    <nav>
+      <a href="{{ url_for('main.home') }}" class="a-icon">
+        <h3>
+          <span
+            ><div style="position: top-left; color: rgb(3, 3, 48)">
+              <b>Custopedia</b>
+            </div></span
+          >
+        </h3>
+      </a>
+    </nav>
+
+    <ul class="ulist">
+      <li class="nav-item">
+        <a href="{{ url_for('main.home') }}" class="nav-link" id="nav-link"
+          ><span class="btn btn-dark" style="border-radius: 30px"
+            >Home Page</span
+          ></a
+        >
+      </li>
+      {% if current_user.is_anonymous %}
+      <li class="nav-item">
+        <a
+          href="{{ url_for('tickets.new_ticket') }}"
+          class="nav-link"
+          id="nav-link"
+          ><span class="btn btn-dark" style="border-radius: 30px"
+            >Create a Ticket</span
+          ></a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="{{ url_for('users.sign_in') }}" class="nav-link" id="nav-link"
+          ><span class="btn btn-dark" style="border-radius: 30px"
+            >Sign In</span
+          ></a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="{{ url_for('users.register') }}" class="nav-link" id="nav-link"
+          ><span class="btn btn-dark" style="border-radius: 30px"
+            >Register</span
+          ></a
+        >
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a
+          href="{{ url_for('tickets.new_ticket') }}"
+          class="nav-link"
+          id="nav-link"
+          ><span class="btn btn-dark" style="border-radius: 30px"
+            >Create a Ticket</span
+          ></a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          href="{{ url_for('tickets.ticket_history') }}"
+          class="nav-link"
+          id="nav-link"
+          ><span class="btn btn-dark" style="border-radius: 30px"
+            >Ticket History</span
+          ></a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="{{ url_for('users.sign_out') }}" class="nav-link" id="nav-link"
+          ><span class="btn btn-dark" style="border-radius: 30px"
+            >Sign Out</span
+          ></a
+        >
+      </li>
+      {% endif %}
+    </ul>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <div class="sticky-top left"><b>Custopedia</b></div>
     <link
       rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='styles/styling.css') }}"
+      href="{{ url_for('static', filename='styles/main.css') }}"
     />
-
-    <div class="p-3 mb-2 bg-dark-subtle text-emphasis-dark">
-      <a class="btn btn-primary" href="{{ url_for('main.home') }}" role="button"
-        >Home</a
-      >
-
-      {% if current_user.is_anonymous %}
-      <a
-        class="btn btn-primary"
-        href="{{ url_for('tickets.new_ticket') }}"
-        role="button"
-        >Create a Ticket</a
-      >
-
-      <a
-        class="btn btn-primary"
-        href="{{ url_for('users.sign_in') }}"
-        role="button"
-        >Sign in</a
-      >
-
-      <a
-        class="btn btn-primary"
-        href="{{ url_for('users.register') }}"
-        role="button"
-        >Register</a
-      >
-
-      {% else %}
-      <a
-        class="btn btn-primary"
-        href="{{ url_for('tickets.new_ticket') }}"
-        role="button"
-        >Create a Ticket</a
-      >
-
-      <a
-        class="btn btn-primary"
-        href="{{ url_for('tickets.ticket_history') }}"
-        role="button"
-        >Ticket history</a
-      >
-
-      <a
-        class="btn btn-primary"
-        href="{{ url_for('users.sign_out') }}"
-        role="button"
-        >Sign out</a
-      >
-      {% endif %}
-    </div>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcome to Custopedia!</title>
+    {% endif %}
   </head>
 
   <body>
@@ -88,23 +112,10 @@
       crossorigin="anonymous"
     ></script>
   </body>
-  <!--<footer>
-<style> footer {
-    align-items: center;
-    background-color: #005780;
-    bottom: 0;
-    display: flex;
-    height: 60px;
-    justify-content: center;
-    position: bottom;
-    width: 100%;
-  }
-  </style>
-  <div>
-    <p>
-      All rights reserved. Custopedia. Contact felixayot@gmail.com for
-      inquiries
+  <footer>
+    <p style="text-align: right">
+      &copy;All rights reserved. <b>Custopedia.</b> Contact felixayot@gmail.com
+      for inquiries.
     </p>
-  </div>
-</footer>-->
+  </footer>
 </html>

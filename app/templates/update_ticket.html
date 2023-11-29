@@ -1,9 +1,10 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Update your ticket</h1>
+<h1>Update ticket</h1>
 <form action="" method="POST" novalidate>
     {{ form.hidden_tag() }}
-    <div class="form-group">
-        {{ form.description.label(class="form-control-label") }}
+    <div class="form-group" style="margin-left: 2em; margin-right: 30em;">
+        {{ form.description.label(class="form-control-label") }}<br>
+        <alert class="text-info bg-dark">Include as many details as possible.</alert><br />
         {% if form.description.errors %}
         {{ form.description(class="form-control form-control-lg is-invalid") }}
         <div class="invalid-feedback">
@@ -15,7 +16,7 @@
         {{ form.description(class="form-control form-control-lg") }}
         {% endif %}
     </div>
-    <div class="form-group">
+    <div class="form-group" style="margin-left: 2em">
         {{ form.file_attachments.label() }}<br>
         {{ form.file_attachments(class="form-control-file") }}
         {% if form.file_attachments.errors %}
@@ -23,8 +24,8 @@
         <span class="text-danger">{{ error }}</span><br>
         {% endfor %}
         {% endif %}<br>
-        <alert>For several files, please upload a combined copy of all of them as one document.</alert><br />
-        <div class="form-group">
+        <alert class="text-info bg-dark">For several files, please upload a combined copy of all of them as one document.</alert><br />
+        <div class="form-group" style="margin-left: 2em">
             {{ form.submit(class="btn btn-outline-info") }}
         </div>
 </form>

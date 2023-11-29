@@ -1,34 +1,34 @@
 {% extends 'base.html' %} {% block content %}
 <div>
-  <h3>{{ ticket.title }}</h3>
-</div>
-<section>
-  <h3>Resolution History</h3>
+  <h3><strong>Ticket title : {{ ticket.title }}</strong></h3>
+</div><br>
+<div class="border border-success-subtle" style="border-radius: 10px; width: 50em;">
+  <h3 style="text-decoration: underline;">Resolution History</h3><br>
   {% if updated_ticket %}
   <div>
     <b>On {{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}, you
-      wrote:</b><br />
-  </div>
-  <div>{{ ticket.description }}<br /></div>
+      wrote:</b></div>
+  <div>{{ ticket.description }}</div><br />
   {% for ut in ticket.updated %}
   <div>
     <b>On {{ ut.updated_at.strftime("%a, %d %b %Y %H:%M") }}, you
       updated:</b>
-  </div><br>
+  </div>
   <div>
     {{ ut.description }}</div><br>
   {% endfor %}
   {% else %}
   <div>
     <b>On {{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}, you
-      wrote:</b><br />
+      wrote:</b>
   </div>
   <div>{{ ticket.description }}</div><br>
   {% endif %}
-  <a href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}">Update</a>
-  <a href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}">Close</a>
+</div><br>
+  <a class="btn btn-primary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black">Update this ticket</a>
+  <a class="btn btn-primary" href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}" style="background-color:#FF5A5F; border-radius: 20px; color:black">Withdraw this ticket</a>
 
-  <div>
+  <div><br>
     <ul>
       <li>
         <b>Your Email address(Where we send feedbacks to your tickets):</b>&emsp;{{ ticket.owner.email }}
@@ -49,6 +49,9 @@
       <li><b>Product:</b>&emsp;{{ ticket.product }}</li>
       <li><b>Product category:</b>&emsp;{{ ticket.product_category }}</li>
       <li><b>Incident type:</b>&emsp;{{ ticket.incident_type }}</li>
+      {% if ticket.file_attachments or ticket.updated.file_attachments %}
+      <li><b>Attached documents:</b>&emsp;{{ ticket.file_attachments or ticket.updated.file_attachments }}</li>
+      {% endif %}
     </ul>
   </div>
 </section>

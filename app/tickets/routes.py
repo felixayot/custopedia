@@ -21,11 +21,10 @@ def new_ticket():
                         description=form.description.data, owner=current_user)
         db.session.add(ticket)
         db.session.commit()
-        Ticket_history = "{{ url_for('tickets.ticket_history') }}"
         flash("Your ticket has been submitted successfully with \
               reference number #{}. Our team will work on it \
               within 48 hours. You can track it's progress \
-              here {}.".format(ticket.id, Ticket_history))
+              in the Tickets History tab.".format(ticket.id))
         return redirect(url_for("tickets.new_ticket"))
     return render_template("new_ticket.html",
                            title="Create a ticket", form=form)

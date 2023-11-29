@@ -2,8 +2,8 @@
 <form action="" method="POST" novalidate>
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Sign In</legend>
-        <div class="form-group">
+        <legend class="border-bottom mb-4" style="margin-left: 2em">Sign In</legend>
+        <div class="form-group" style="margin-left: 2em; margin-right: 50em;">
             {{ form.username.label(class="form-control-label") }}
             {% if form.username.errors %}
             {{ form.username(class="form-control form-control-lg is-invalid") }}
@@ -17,7 +17,7 @@
             {% endif %}
         </div><br>
 
-        <div class="form-group">
+        <div class="form-group" style="margin-left: 2em; margin-right: 50em;">
             {{ form.password.label(class="form-control-label") }}
             {% if form.password.errors %}
             {{ form.password(class="form-control form-control-lg is-invalid") }}
@@ -31,22 +31,22 @@
             {% endif %}
         </div><br>
 
-        <div class="form-check">
+        <div class="form-check" style="margin-left: 2em">
             {{ form.remember_me(class="form-check-input") }}
             {{ form.remember_me.label(class="form-check-label") }}
         </div><br>
     </fieldset>
-    <div class="form-group">
+    <div class="form-group" style="margin-left: 2em">
         {{ form.submit(class="btn btn-outline-info") }}
     </div>
-    <small class="text-muted ml-2">
-        <a href="#">Forgot Password?</a>
+    <small class="text-muted ml-2" style="margin-left: 2em">
+        <a href="{{ url_for('users.reset_request') }}">Forgot Password?</a>
     </small>
 </form>
 </div>
-<div class="border-top pt-3">
+<div class="border-top pt-3" style="margin-left: 2em">
     <small class="text-muted">
-        Not yet registered?<a class="ml-2" href="{{ url_for('users.register') }}">Sign Up here</a>
+        Not yet registered? <a class="ml-2" href="{{ url_for('users.register') }}">Sign Up here</a>
     </small>
 </div><br>
 {% endblock %}

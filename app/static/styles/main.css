@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
+body {
+  margin: 0;
+  background-color: gainsboro;
+  font-family: "Roboto", sans-serf;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.card {
+  width: 425px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 57em;
+  margin-right: 1em;
+  float: left;
+  padding: 2em;
+  background-color: #d1eaf0;
+  border-radius: 20px;
+  overflow: hidden;
+  top: 50%;
+  left: 0;
+  transform: translate(-1%, -102%);
+}
+
+.frame {
+  position: relative;
+  width: 850px;
+  height: 100%;
+  margin: 1.5em 2em 2em 0.5em;
+  padding: 2em;
+  background-color: #d1eaf0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ulist {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 2rem;
+}
+
+nav {
+  background: gainsboro;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  box-shadow: gainsboro;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Smooth scroll effect */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+.ulist li {
+  list-style-type: none;
+}
+
+.a-icon {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.a-icon:hover {
+  color: var(--secondary-color);
+}
