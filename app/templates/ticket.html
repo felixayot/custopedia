@@ -3,7 +3,7 @@
   <h3><strong>Ticket title : {{ ticket.title }}</strong></h3>
 </div><br>
 <div class="border border-success-subtle" style="border-radius: 10px; width: 50em;">
-  <h3 style="text-decoration: underline;">Resolution History</h3><br>
+  <h3 style="text-decoration: underline;" class="text-success">Resolution History</h3><br>
   {% if updated_ticket %}
   <div>
     <b>On {{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}, you
