@@ -2,7 +2,7 @@
 <div>
   <h3><strong>Ticket title : {{ ticket.title }}</strong></h3>
 </div><br>
-<div class="border border-success-subtle" style="border-radius: 10px; width: 50em;">
+<div class="border border-success-subtle" style="border-radius: 10px; width: 50em; margin-left: 2em">
   <h3 style="text-decoration: underline;" class="text-success">Resolution History</h3><br>
   {% if updated_ticket %}
   <div>
@@ -25,7 +25,7 @@
   <div>{{ ticket.description }}</div><br>
   {% endif %}
 </div><br>
-  <a class="btn btn-primary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black">Update this ticket</a>
+  <a class="btn btn-primary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black; margin-left: 2em;">Update this ticket</a>
   <a class="btn btn-primary" href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}" style="background-color:#FF5A5F; border-radius: 20px; color:black">Withdraw this ticket</a>
 
   <div><br>
