@@ -2,7 +2,7 @@
 <h1 style="margin-left: 2em">Update ticket</h1>
 <form action="" method="POST" novalidate>
     {{ form.hidden_tag() }}
-    <div class="form-group" style="margin-left: 2em; margin-right: 30em;">
+    <div class="form-group" style="margin-left: 2em; width: 70vw;">
         {{ form.description.label(class="form-control-label") }}<br>
         <alert class="text-info bg-dark">Include as many details as possible.</alert><br />
         {% if form.description.errors %}

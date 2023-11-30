@@ -19,7 +19,7 @@
   <div style="margin-left: 2em; margin-right: 30em">
     <select
       name="incident_type"
-      style="border-radius: 10px; width: 32.5em; height: 3em"
+      style="border-radius: 10px; width: 60vw; height: 3em"
     >
       <option selected>{{ form.incident_type.label }}</option>
       {% for choice in form.incident_type.choices %}
@@ -31,7 +31,7 @@
   <div style="margin-left: 2em; margin-right: 30em">
     <select
       name="product"
-      style="border-radius: 10px; width: 32.5em; height: 3em"
+      style="border-radius: 10px; width: 60vw; height: 3em"
     >
       <option selected>{{ form.product.label }}</option>
       {% for choice in form.product.choices %}
@@ -43,7 +43,7 @@
   <div style="margin-left: 2em; margin-right: 30em">
     <select
       name="product_category"
-      style="border-radius: 10px; width: 32.5em; height: 3em"
+      style="border-radius: 10px; width: 60vw; height: 3em"
     >
       <option selected>{{ form.product_category.label }}</option>
       {% for choice in form.product_category.choices %}
@@ -53,7 +53,7 @@
   </div>
   <br />
 
-  <div class="form-group" style="margin-left: 2em; width: 60vw;">
+  <div class="form-group" style="margin-left: 2em; width: 70vw;">
     {{ form.description.label(class="form-control-label") }}<br />
     <alert class="text-info bg-dark">Include as many details as possible.</alert
     ><br />
