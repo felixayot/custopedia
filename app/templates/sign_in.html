@@ -3,7 +3,7 @@
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
         <legend class="border-bottom mb-4" style="margin-left: 2em">Sign In</legend>
-        <div class="form-group" style="margin-left: 2em; margin-right: 50em;">
+        <div class="form-group" style="margin-left: 2em; width: 60vw;">
             {{ form.username.label(class="form-control-label") }}
             {% if form.username.errors %}
             {{ form.username(class="form-control form-control-lg is-invalid") }}
@@ -17,7 +17,7 @@
             {% endif %}
         </div><br>
 
-        <div class="form-group" style="margin-left: 2em; margin-right: 50em;">
+        <div class="form-group" style="margin-left: 2em; width: 60vw;">
             {{ form.password.label(class="form-control-label") }}
             {% if form.password.errors %}
             {{ form.password(class="form-control form-control-lg is-invalid") }}
