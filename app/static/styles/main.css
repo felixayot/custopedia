@@ -9,28 +9,51 @@ strong {
   font-weight: bold;
 }
 
-.card {
-  width: 425px;
-  height: 100%;
-  display: flex;
+.home-bg {
+  background-image: url("../images/cs_support.png");
+  font-size: 18px;
   align-items: center;
-  margin-left: 57em;
-  margin-right: 1em;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  font-weight: bold;
+  margin: 0.5em 1em;
+}
+
+.card {
+  width: 30vw;
+  /*height: 100%;*/
+  /*display: flex;*/
+  position: absolute;
+  align-items: center;
   float: left;
   padding: 2em;
   background-color: #d1eaf0;
   border-radius: 20px;
   overflow: hidden;
-  top: 50%;
-  left: 0;
-  transform: translate(-1%, -102%);
+  top: 22em;
+  right: 3em;
+}
+
+@media only screen and (max-width: 380px) {
+  /* For mobile phones: */
+  .card {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  /* For Desktop: */
+  .frame {
+    width: 100%;
+  }
 }
 
 .frame {
   position: relative;
-  width: 850px;
+  width: 62vw;
   height: 100%;
-  margin: 1.5em 2em 2em 0.5em;
+  margin: 1.5em 2em 2em 1.5em;
   padding: 2em;
   background-color: #d1eaf0;
   border-radius: 20px;
@@ -39,7 +62,7 @@ strong {
 
 .ulist {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -71,6 +94,7 @@ html {
   padding: 0;
   box-sizing: border-box;
   transition: var(--transition);
+  /*border: 1px solid red; Boxes an element with solid red lines*/
 }
 
 .ulist li {
