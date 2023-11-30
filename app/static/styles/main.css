@@ -5,6 +5,11 @@ body {
   font-family: "Roboto", sans-serf;
 }
 
+footer p {
+  text-align: right;
+  position: sticky;
+}
+
 strong {
   font-weight: bold;
 }
@@ -23,7 +28,7 @@ strong {
 .card {
   width: 30vw;
   /*height: 100%;*/
-  /*display: flex;*/
+  display: flex;
   position: absolute;
   align-items: center;
   float: left;
@@ -31,8 +36,9 @@ strong {
   background-color: #d1eaf0;
   border-radius: 20px;
   overflow: hidden;
-  top: 22em;
-  right: 3em;
+  /* Position the card at mid-right --> */
+  top: 28em; 
+  right: 1em;
 }
 
 @media only screen and (max-width: 380px) {
@@ -53,7 +59,7 @@ strong {
   position: relative;
   width: 62vw;
   height: 100%;
-  margin: 1.5em 2em 2em 1.5em;
+  margin: 5em 2em 2em 1.5em;
   padding: 2em;
   background-color: #d1eaf0;
   border-radius: 20px;
@@ -78,8 +84,8 @@ nav {
   padding: 1rem 1.5rem;
   box-shadow: gainsboro;
   position: sticky;
-  top: 0;
-  left: 0;
+  /*top: 0;
+  left: 0;*/
   z-index: 1;
 }
 

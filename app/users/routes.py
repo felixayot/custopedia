@@ -24,7 +24,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash("Your account has been created successfully! \
-              Please sign in to proceed.")
+              Please sign in to proceed.", "success")
         return redirect(url_for("users.sign_in"))
     return render_template("register.html", title="Register", form=form)
 
@@ -37,7 +37,7 @@ def sign_in():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not check_password_hash(user.password,
                                                         form.password.data):
-            flash("Invalid username or password!")
+            flash("Invalid username or password!", "danger")
             return redirect(url_for("users.sign_in"))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get("next")

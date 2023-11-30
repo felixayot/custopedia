@@ -24,7 +24,7 @@ def new_ticket():
         flash("Your ticket has been submitted successfully with \
               reference number #{}. Our team will work on it \
               within 48 hours. You can track it's progress \
-              in the Tickets History tab.".format(ticket.id))
+              in the Tickets History tab.".format(ticket.id), "success")
         return redirect(url_for("tickets.new_ticket"))
     return render_template("new_ticket.html",
                            title="Create a ticket", form=form)
