@@ -3,7 +3,7 @@
 <form action="" method="POST" validate>
   {{ form.hidden_tag() }}
 
-  <div class="form-group" style="margin-left: 2em; margin-right: 50em">
+  <div class="form-group" style="margin-left: 2em; width: 60vw;">
     {{ form.title.label(class="form-control-label") }} {% if form.title.errors
     %} {{ form.title(class="form-control form-control-lg is-invalid") }}
     <div class="invalid-feedback">
@@ -53,7 +53,7 @@
   </div>
   <br />
 
-  <div class="form-group" style="margin-left: 2em; margin-right: 30em">
+  <div class="form-group" style="margin-left: 2em; width: 60vw;">
     {{ form.description.label(class="form-control-label") }}<br />
     <alert class="text-info bg-dark">Include as many details as possible.</alert
     ><br />
