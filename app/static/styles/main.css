@@ -69,7 +69,7 @@ strong {
 .ulist {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: right;
 }
 
 .nav-item {

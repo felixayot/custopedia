@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 from flask_mail import Message
+from werkzeug.routing.exceptions import BuildError
 
 users = Blueprint("users", __name__)
 
@@ -72,7 +73,10 @@ def reset_request():
     form = RequestResetForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        send_reset_email(user)
+        try:
+            send_reset_email(user)
+        except (BuildError, ConnectionRefusedError):
+            pass
         flash("An email has been sent with instructions to reset your password.", "info")
         return redirect(url_for("users.login"))
     return render_template("reset_request.html", title="Reset Password", form=form)

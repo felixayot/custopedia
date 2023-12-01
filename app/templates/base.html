@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="../static/images/icon_2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" href="../static/images/cust_icon.jpg" style="height: 20px; width: 25px; border-radius: 100px;"/>
     <nav>
       <a href="{{ url_for('main.home') }}" class="a-icon">
         <h3>
           <span
-            ><div style="position: top-left; color: rgb(3, 3, 48)">
-              <b>Custopedia</b>
+            ><div style="position: top-left;">
+              <img src="{{ url_for('static', filename='images/cust_logo.jpg') }}" style="border-radius: 24px;">
             </div></span
           >
         </h3>
@@ -19,7 +19,11 @@
     <ul class="ulist">
       <li class="nav-item">
         <a href="{{ url_for('main.home') }}" class="nav-link" id="nav-link"
-          ><span class="btn btn-dark" style="border-radius: 25px; padding: 1em; white-space: nowrap;">Home Page</span></a
+          ><span
+            class="btn btn-dark"
+            style="border-radius: 25px; padding: 1em; white-space: nowrap"
+            >Home Page</span
+          ></a
         >
       </li>
       {% if current_user.is_anonymous %}
@@ -28,17 +32,34 @@
           href="{{ url_for('tickets.new_ticket') }}"
           class="nav-link"
           id="nav-link"
-          ><span class="btn btn-dark" style="border-radius: 25px; padding: 1em; white-space: nowrap;">Create a Ticket</span></a
+          ><span
+            class="btn btn-dark"
+            style="border-radius: 25px; padding: 1em; white-space: nowrap"
+            >Create a Ticket</span
+          ></a
         >
       </li>
       <li class="nav-item">
         <a href="{{ url_for('users.sign_in') }}" class="nav-link" id="nav-link"
-          ><span class="btn btn-dark" style="border-radius: 25px; padding: 1em; white-space: nowrap;">Sign In</span></a
+          ><span
+            class="btn btn-dark"
+            style="border-radius: 25px; padding: 1em; white-space: nowrap"
+            >Sign In</span
+          ></a
         >
       </li>
       <li class="nav-item">
         <a href="{{ url_for('users.register') }}" class="nav-link" id="nav-link"
-          ><span class="btn btn-dark" style="border-radius: 25px; padding: 1em; white-space: nowrap;  margin-right: 1em;">Register</span></a
+          ><span
+            class="btn btn-dark"
+            style="
+              border-radius: 25px;
+              padding: 1em;
+              white-space: nowrap;
+              margin-right: 1em;
+            "
+            >Register</span
+          ></a
         >
       </li>
       {% else %}
@@ -47,7 +68,11 @@
           href="{{ url_for('tickets.new_ticket') }}"
           class="nav-link"
           id="nav-link"
-          ><span class="btn btn-dark" style="border-radius: 25px; padding: 1em; white-space: nowrap;">Create a Ticket</span></a
+          ><span
+            class="btn btn-dark"
+            style="border-radius: 25px; padding: 1em; white-space: nowrap"
+            >Create a Ticket</span
+          ></a
         >
       </li>
       <li class="nav-item">
@@ -55,23 +80,42 @@
           href="{{ url_for('tickets.ticket_history') }}"
           class="nav-link"
           id="nav-link"
-          ><span class="btn btn-dark" style="border-radius: 25px; padding: 1em; white-space: nowrap;">Ticket History</span></a
+          ><span
+            class="btn btn-dark"
+            style="border-radius: 25px; padding: 1em; white-space: nowrap"
+            >Ticket History</span
+          ></a
         >
       </li>
       <li class="nav-item">
         <a href="{{ url_for('users.sign_out') }}" class="nav-link" id="nav-link"
-          ><span class="btn btn-dark" style="border-radius: 25px; padding: 1em; white-space: nowrap;  margin-right: 1em;">Sign Out</span></a
+          ><span
+            class="btn btn-dark"
+            style="
+              border-radius: 25px;
+              padding: 1em;
+              white-space: nowrap;
+              margin-right: 1em;
+            "
+            >Sign Out</span
+          ></a
         >
       </li>
       {% endif %}
     </ul>
-
+    <!-- Bootstrap CSS v5.3.2 -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+   <!--<link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />-->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='styles/main.css') }}"
@@ -85,22 +129,34 @@
   <body>
     <hr />
     {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul>
+    <ul class="ulist" class="success" class="danger" class="info">
       {% for message in messages %}
       <li>{{ message }}</li>
       {% endfor %}
     </ul>
     {% endif %} {% endwith %} {% block content %}{% endblock %}
-    <script
+   <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+   <!--<script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>-->
   </body>
-  <!--<footer>
+  <footer>
+    <!-- <hr style="width:50%; text-align:right; margin-right: 0;"> -->
     <p>
-      &copy;All rights reserved. <b>Custopedia.</b> Contact felixayot@gmail.com
-      for inquiries.
+      &copy; 2023 All rights reserved. <b>Custopedia.</b> For inquiries, contact: <ul class="ulist" style="justify-content: center;">
+        <li><a href="https://github.com/felixayot"><img src="{{ url_for('static', filename='images/github-mark.png') }}" style="width: 25px; height: 25px; margin: 1em;">
+          </a></li>
+        <li><a href="https://www.linkedin.com/in/felix-ayot-51a006124/"><img src="{{ url_for('static', filename='images/linkedin_icon.png') }}" style="width: 25px; height: 25px; margin: 1em;">
+          </a></li>
+        <li><a href="mailto:felixayot@gmail.com"><img src="{{ url_for('static', filename='images/gmail-icon.png') }}" style="width: 25px; height: 25px; margin: 1em; background-image: none;">
+          </a></li>
+      </ul>
     </p>
-  </footer>-->
+  </footer>
 </html>
