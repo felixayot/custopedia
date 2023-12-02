@@ -5,3 +5,5 @@ __pycache__/
 tmp/
 dropdb
 migratedb
+media.scss
+media.css.map

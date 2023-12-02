@@ -120,6 +120,10 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles/main.css') }}"
     />
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='styles/media.css') }}"
+  />
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
@@ -146,7 +150,7 @@
       crossorigin="anonymous"
     ></script>-->
   </body>
-  <footer>
+  <footer style="height: 100vh;">
     <!-- <hr style="width:50%; text-align:right; margin-right: 0;"> -->
     <p>
       &copy; 2023 All rights reserved. <b>Custopedia.</b> For inquiries, contact: <ul class="ulist" style="justify-content: center;">
