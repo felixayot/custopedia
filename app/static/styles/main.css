@@ -16,6 +16,7 @@ strong {
 
 .home-bg {
   background-image: url("../images/cs_support.png");
+  background-image: no-repeat;
   font-size: 18px;
   align-items: center;
   justify-content: center;
@@ -39,20 +40,6 @@ strong {
   /* Position the card at mid-right --> */
   top: 28em; 
   right: 1em;
-}
-
-@media only screen and (max-width: 380px) {
-  /* For mobile phones: */
-  .card {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 380px) {
-  /* For Desktop: */
-  .frame {
-    width: 100%;
-  }
 }
 
 .frame {
