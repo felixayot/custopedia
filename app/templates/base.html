@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="../static/images/cust_icon.jpg" style="height: 20px; width: 25px; border-radius: 100px;"/>
     <nav>
       <a href="{{ url_for('main.home') }}" class="a-icon">
@@ -15,7 +15,6 @@
         </h3>
       </a>
     </nav>
-
     <ul class="ulist">
       <li class="nav-item">
         <a href="{{ url_for('main.home') }}" class="nav-link" id="nav-link"
@@ -95,7 +94,6 @@
               border-radius: 25px;
               padding: 1em;
               white-space: nowrap;
-              margin-right: 1em;
             "
             >Sign Out</span
           ></a
@@ -120,10 +118,6 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles/main.css') }}"
     />
-    <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='styles/media.css') }}"
-  />
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
@@ -133,9 +127,9 @@
   <body>
     <hr />
     {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul class="ulist" class="success" class="danger" class="info">
+    <ul class="ulist">
       {% for message in messages %}
-      <li>{{ message }}</li>
+      <li class="success" class="danger" class="info">{{ message }}</li>
       {% endfor %}
     </ul>
     {% endif %} {% endwith %} {% block content %}{% endblock %}
@@ -150,17 +144,15 @@
       crossorigin="anonymous"
     ></script>-->
   </body>
-  <footer style="height: 100vh;">
+  <div class="copyright">
     <!-- <hr style="width:50%; text-align:right; margin-right: 0;"> -->
-    <p>
-      &copy; 2023 All rights reserved. <b>Custopedia.</b> For inquiries, contact: <ul class="ulist" style="justify-content: center;">
-        <li><a href="https://github.com/felixayot"><img src="{{ url_for('static', filename='images/github-mark.png') }}" style="width: 25px; height: 25px; margin: 1em;">
+      &copy; 2023 All rights reserved.&nbsp;<b>Custopedia.</b>&nbsp;For inquiries, contact: <ul class="ulist" style="justify-content: flex-end; gap: 0.25em;">
+        <li><a href="https://github.com/felixayot"><img src="{{ url_for('static', filename='images/github-mark.png') }}" style="width: 20px; height: 20px; margin: 1em;">
           </a></li>
-        <li><a href="https://www.linkedin.com/in/felix-ayot-51a006124/"><img src="{{ url_for('static', filename='images/linkedin_icon.png') }}" style="width: 25px; height: 25px; margin: 1em;">
+        <li><a href="https://www.linkedin.com/in/felix-ayot-51a006124/"><img src="{{ url_for('static', filename='images/linkedin_icon.png') }}" style="width: 20px; height: 20px; margin: 1em;">
           </a></li>
-        <li><a href="mailto:felixayot@gmail.com"><img src="{{ url_for('static', filename='images/gmail-icon.png') }}" style="width: 25px; height: 25px; margin: 1em; background-image: none;">
+        <li><a href="mailto:felixayot@gmail.com"><img src="{{ url_for('static', filename='images/gmail-icon.png') }}" style="width: 20px; height: 20px; margin: 1em;">
           </a></li>
       </ul>
-    </p>
-  </footer>
+  </div>
 </html>

@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
   <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-    <h1 style="text-align: center; width: 100%;">Custopedia. Reach out to us.</h1>
+    <h1 style="text-align: center;">Custopedia. Reach out to us.</h1>
   </div>
   <div class="home-bg">
     <p style="color: whitesmoke; margin-top: 2em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quibusdam
@@ -9,7 +9,7 @@
       ullam sint reiciendis dolore tempora accusantium ipsa accusamus eum. Qui
       veritatis ad voluptates iste dolorum odio numquam, illo tempore maiores!</p>
   </div>
-
+<section>
 <div class="frame" class="p-3 mb-2 bg-info-subtle text-emphasis-info">
     <ul>
       <h3><b>Find answers to our FAQs from the knowledge base below:</b></h3>
@@ -61,13 +61,14 @@
       
     </ul>
   </div>
-
-<section class="card">
+  </section>
+  <section>
+<div class="card">
   <img src="{{ url_for('static', filename='images/card_image.jpg') }}" class="card-img-top" style="position: sticky;">
     <div class="card-body"><h3 style="color: green; align-content: end;">Newly launched product</h3>
     <p style="color: purple" class="card-text"><p style="color: purple">Product's short description</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
      Quod sit, aspernatur numquam recusandae doloribus incidunt fugit rem blanditiis provident ratione id iure ullam nam nesciunt eligendi natus. Excepturi, facere soluta.</p>
     <a href="#" class="btn btn-info">Link here</a>
 </div>
-</section><hr>
+</section>
 {% endblock %}
