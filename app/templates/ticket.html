@@ -3,35 +3,37 @@
   <h3 style="margin-left: 0.5em;"><strong>Ticket title : {{ ticket.title }}</strong></h3>
 </div><br>
 <div class="border border-success-subtle" style="border-radius: 10px; width: 70vw; margin-left: 2em;">
-  <h3 style="text-decoration: underline;" class="text-success">Resolution History</h3><br>
+  <h3 class="p-1 success-text-emphasis bg-success-subtle border border-success-subtle rounded-3" style="text-align: center;">Resolution History</h3><br>
   {% if updated_ticket %}
-  <div>
+  <div>&nbsp;
     <b>On {{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}, you
       wrote:</b></div>
-  <div>{{ ticket.description }}</div><br />
+  <div>&nbsp;
+    {{ ticket.description }}</div><br />
   {% for ut in ticket.updated %}
-  <div>
+  <div>&nbsp;
     <b>On {{ ut.updated_at.strftime("%a, %d %b %Y %H:%M") }}, you
       updated:</b>
   </div>
-  <div>
+  <div>&nbsp;
     {{ ut.description }}</div><br>
   {% endfor %}
   {% else %}
-  <div>
+  <div>&nbsp;
     <b>On {{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}, you
       wrote:</b>
   </div>
-  <div>{{ ticket.description }}</div><br>
+  <div>&nbsp;
+    {{ ticket.description }}</div><br>
   {% endif %}
 </div><br>
   <a class="btn btn-primary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black; margin-left: 2em;">Update this ticket</a>
   <a class="btn btn-primary" href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}" style="background-color:#FF5A5F; border-radius: 20px; color:black">Withdraw this ticket</a>
 
   <div><br>
-    <ul>
+    <ul style="list-style-type: none;">
       <li>
-        <b>Your Email address(Where we send feedbacks to your tickets):</b>&emsp;{{ ticket.owner.email }}
+        <b>Your Email address (Where we send feedbacks to your tickets):</b>&emsp;{{ ticket.owner.email }}
       </li>
       <li><b>Status:</b>&emsp;{{ ticket.status }}</li>
       {% if ticket.updated %}
@@ -49,8 +51,14 @@
       <li><b>Product:</b>&emsp;{{ ticket.product }}</li>
       <li><b>Product category:</b>&emsp;{{ ticket.product_category }}</li>
       <li><b>Incident type:</b>&emsp;{{ ticket.incident_type }}</li>
-      {% if ticket.file_attachments or ticket.updated.file_attachments %}
-      <li><b>Attached documents:</b>&emsp;{{ ticket.file_attachments or ticket.updated.file_attachments }}</li>
+      {% if ticket.file_attachments %}
+      <li><b>Attached documents:</b>&emsp;<a href="{{ url_for('tickets.view_file', file=ticket.file_attachments) }}">{{ ticket.file_attachments }}</a></li>
+      {% else %}
+      {% for fn in ticket.updated %}
+      {% if fn.file_attachments %}
+      <li><b>Attached documents:</b>&emsp;<a href="{{ url_for('tickets.view_file', file=fn.file_attachments) }}">{{ fn.file_attachments }}</a></li>
+      {% endif %}
+      {% endfor %}
       {% endif %}
     </ul>
   </div>

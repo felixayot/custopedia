@@ -15,7 +15,9 @@ class Ticket(db.Model):
                            default=datetime.now)
     status = db.Column(db.String(30), index=True, default="Unassigned",
                              nullable=False)
-    updated_ticket = db.relationship("UpdatedTicket", backref="original", lazy=True)
+    updated_ticket = db.relationship("UpdatedTicket",
+                                     backref="original", lazy=True,
+                                     overlaps="updated, original_ticket")
 
     def __repr__(self):
         return ("***Ticket Number: {}***\n***Title: {}***"

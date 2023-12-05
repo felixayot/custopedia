@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
-<h1 style="margin-left: 2em">Update ticket</h1>
-<form action="" method="POST" novalidate>
+<h1 style="margin-left: 0.5vw">Update ticket</h1>
+<form action="" method="POST" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
     <div class="form-group" style="margin-left: 2em; width: 70vw;">
         {{ form.description.label(class="form-control-label") }}<br>
@@ -15,7 +15,7 @@
         {% else %}
         {{ form.description(class="form-control form-control-lg") }}
         {% endif %}
-    </div>
+    </div><br>
     <div class="form-group" style="margin-left: 2em">
         {{ form.file_attachments.label() }}<br>
         {{ form.file_attachments(class="form-control-file") }}
@@ -25,8 +25,8 @@
         {% endfor %}
         {% endif %}<br>
         <alert class="text-info bg-dark">For several files, please upload a combined copy of all of them as one document.</alert><br />
-        <div class="form-group" style="margin-left: 0.5em">
-            {{ form.submit(class="btn btn-outline-info") }}
+        <div class="form-group" style="margin-left: 0em"><br>
+            {{ form.submit(class="btn btn-outline-info") }}<br>
         </div>
 </form>
 {% endblock %}
