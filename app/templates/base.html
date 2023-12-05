@@ -127,9 +127,9 @@
   <body>
     <hr />
     {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul class="ulist">
+    <ul class="ulist" class="invalid-feedback">
       {% for message in messages %}
-      <li class="success" class="danger" class="info">{{ message }}</li>
+      <li>{{ message }}</li>
       {% endfor %}
     </ul>
     {% endif %} {% endwith %} {% block content %}{% endblock %}

@@ -1,4 +1,6 @@
-from flask import render_template, url_for, flash, redirect, Blueprint
+import os
+from flask import render_template, url_for, flash, redirect, \
+    current_app, send_file, Blueprint
 from app import db, mail
 from app.tickets.forms import NewticketForm, UpdateticketForm
 from app.models.tickets import Ticket
@@ -21,6 +23,9 @@ def new_ticket():
                         product=form.product.data,
                         product_category=form.product_category.data,
                         description=form.description.data, owner=current_user)
+        if form.file_attachments.data:
+            file = save_file(form.file_attachments.data)
+            ticket.file_attachments = file
         db.session.add(ticket)
         db.session.commit()
         flash("Your ticket has been submitted successfully with \
@@ -68,6 +73,9 @@ def update_ticket(ticket_id):
         updated_ticket = UpdatedTicket(description=form.description.data,
                                        original=ticket)
         ticket.status = "Unassigned"
+        if form.file_attachments.data:
+            file = save_file(form.file_attachments.data)
+            updated_ticket.file_attachments = file
         db.session.add(updated_ticket)
         db.session.commit()
         flash("Your ticket has been updated!", "success")
@@ -100,6 +108,22 @@ def resolve_ticket(ticket_id):
         return redirect(url_for("tickets.view_ticket", ticket_id=ticket.id))
     return render_template("update_ticket.html", title="Update ticket",
                            form=form)
+
+
+@tickets.route("/file_attachments/<file>", strict_slashes=False)
+@login_required
+def view_file(file):
+    try:
+        return send_file(os.path.join(current_app.root_path, "static/user_file_attachments", file))
+    except Exception as e:
+        return render_template("errors/404.html"), 404
+
+
+def save_file(form_file):
+    fn = form_file.filename
+    file_path = os.path.join(current_app.root_path, "static/user_file_attachments", fn)
+    form_file.save(file_path)
+    return fn
 
 
 def send_new_ticket_email(user, ticket):

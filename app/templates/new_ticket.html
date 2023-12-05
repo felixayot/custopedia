@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Create your ticket</h1>
-<form action="" method="POST" validate>
+<h1 style="margin-left: 2vw;">Create your ticket</h1>
+<form action="" method="POST" enctype="multipart/form-data">
   {{ form.hidden_tag() }}
 
   <div class="form-group" style="margin-left: 2em; width: 60vw;">
@@ -26,7 +26,12 @@
       <option>{{ choice }}</option>
       {% endfor %}
     </select>
-  </div>
+    {% if
+      form.incident_type.errors %} {% for error in form.incident_type.errors
+      %}
+      <span class="text-danger">{{ error }}</span><br />
+      {% endfor %} {% endif %}
+</div>
   <br />
   <div style="margin-left: 2em; margin-right: 30em">
     <select
@@ -38,6 +43,11 @@
       <option>{{ choice }}</option>
       {% endfor %}
     </select>
+    {% if
+      form.product.errors %} {% for error in form.product.errors
+      %}
+      <span class="text-danger">{{ error }}</span><br />
+      {% endfor %} {% endif %}
   </div>
   <br />
   <div style="margin-left: 2em; margin-right: 30em">
@@ -50,6 +60,11 @@
       <option>{{ choice }}</option>
       {% endfor %}
     </select>
+    {% if
+      form.product_category.errors %} {% for error in form.product_category.errors
+      %}
+      <span class="text-danger">{{ error }}</span><br />
+      {% endfor %} {% endif %}
   </div>
   <br />
 
@@ -61,7 +76,7 @@
     form-control-lg is-invalid") }}
     <div class="invalid-feedback">
       {% for error in form.description.errors %}
-      <span>{{ error }}</span>
+      <span>{{ error }}</span><br>
       {% endfor %}
     </div>
     {% else %} {{ form.description(class="form-control form-control-lg") }} {%
@@ -74,14 +89,14 @@
     {{ form.file_attachments(class="form-control-file") }} {% if
     form.file_attachments.errors %} {% for error in form.file_attachments.errors
     %}
-    <span class="text-danger">{{ error }}</span><br />
+    <span class="text-danger">{{ error }}</span>
     {% endfor %} {% endif %}<br />
     <alert class="text-info bg-dark"
       >For several files, please upload a combined copy of all of them as one
       document.</alert
     ><br />
   </div>
-  <div class="form-group" style="margin-left: 2em">
+  <div class="form-group" style="margin-left: 2em"><br>
     {{ form.submit(class="btn btn-outline-info") }}
   </div>
 </form>
