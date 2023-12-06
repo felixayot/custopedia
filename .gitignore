@@ -3,8 +3,10 @@ custenv/
 .env
 __pycache__/
 tmp/
+custopedia.db
 dropdb
 migratedb
 main.scss
 main.css.map
 reset.css
+user_file_attachments/*
