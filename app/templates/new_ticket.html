@@ -88,8 +88,8 @@
     {{ form.file_attachments.label() }}<br />
     {{ form.file_attachments(class="form-control-file") }} {% if
     form.file_attachments.errors %} {% for error in form.file_attachments.errors
-    %}
-    <span class="text-danger">{{ error }}</span>
+    %}<br>
+    <span class="text-danger">{{ error }}</span><br>
     {% endfor %} {% endif %}<br />
     <alert class="text-info bg-dark"
       >For several files, please upload a combined copy of all of them as one

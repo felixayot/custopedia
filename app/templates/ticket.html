@@ -27,7 +27,7 @@
     {{ ticket.description }}</div><br>
   {% endif %}
 </div><br>
-  <a class="btn btn-primary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black; margin-left: 2em;">Update this ticket</a>
+  <a class="btn btn-primary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black; margin-left: 2em; margin-right: 10em;">Update this ticket</a>
   <a class="btn btn-primary" href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}" style="background-color:#FF5A5F; border-radius: 20px; color:black">Withdraw this ticket</a>
 
   <div><br>
@@ -53,12 +53,13 @@
       <li><b>Incident type:</b>&emsp;{{ ticket.incident_type }}</li>
       {% if ticket.file_attachments %}
       <li><b>Attached documents:</b>&emsp;<a href="{{ url_for('tickets.view_file', file=ticket.file_attachments) }}">{{ ticket.file_attachments }}</a></li>
-      {% else %}
+      {% if ticket.updated %}
       {% for fn in ticket.updated %}
       {% if fn.file_attachments %}
       <li><b>Attached documents:</b>&emsp;<a href="{{ url_for('tickets.view_file', file=fn.file_attachments) }}">{{ fn.file_attachments }}</a></li>
       {% endif %}
       {% endfor %}
+      {% endif %}
       {% endif %}
     </ul>
   </div>

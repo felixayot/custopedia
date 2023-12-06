@@ -9,4 +9,4 @@ migratedb
 main.scss
 main.css.map
 reset.css
-user_file_attachments/
+user_file_attachments/*

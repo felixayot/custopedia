@@ -20,9 +20,9 @@
         {{ form.file_attachments.label() }}<br>
         {{ form.file_attachments(class="form-control-file") }}
         {% if form.file_attachments.errors %}
-        {% for error in form.file_attachments.errors %}
+        {% for error in form.file_attachments.errors %}<br>
         <span class="text-danger">{{ error }}</span><br>
-        {% endfor %}
+        {% endfor %}<br>
         {% endif %}<br>
         <alert class="text-info bg-dark">For several files, please upload a combined copy of all of them as one document.</alert><br />
         <div class="form-group" style="margin-left: 0em"><br>
