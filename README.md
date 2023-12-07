@@ -7,6 +7,8 @@ This project is my portfolio project built during my learning journey in the [AL
   - Raise an issue with a ticket custom-tailored to the concerned department of that institution as opposed to the usual  general customer care desk.
   - Live chat bot with realtime responses(Still a WIP).
 
+![Custopedia home page](home_page.png)
+
 More details on the inspiration to this project as well as a detailed tech stack leveraged, visit the below links where I wrote a blog on my journey and experience on this project.
 - [Project proposal](https://github.com/felixayot/ALX_SE_important_concepts/blob/master/custopedia.md)
 - [MVP Specification](https://github.com/felixayot/ALX_SE_important_concepts/blob/master/custopedia_mvp_specification.md)
