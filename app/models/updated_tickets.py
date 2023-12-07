@@ -1,8 +1,10 @@
+"""Defines updated ticket model for the app."""
 from app import db
 from datetime import datetime
 
 
 class UpdatedTicket(db.Model):
+    """Represents an updated ticket in the app."""
     id = db.Column(db.Integer, primary_key=True)
     original_ticket_id = db.Column(db.Integer, db.ForeignKey("ticket.id"),
                                    nullable=False)
@@ -15,5 +17,8 @@ class UpdatedTicket(db.Model):
 
 
     def __repr__(self):
+        """Returns the official string representation of an instance
+           of the UpdatedTicket class.
+        """
         return ("***Update ID: {}***\n***Ticket Number: {}***\n***Title: {}***"
                 .format(self.id, self.original_ticket_id, self.original.title))

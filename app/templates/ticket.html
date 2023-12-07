@@ -3,7 +3,7 @@
   <h3 style="margin-left: 0.5em;"><strong>Ticket title : {{ ticket.title }}</strong></h3>
 </div><br>
 <div class="border border-success-subtle" style="border-radius: 10px; width: 70vw; margin-left: 2em;">
-  <h3 class="p-1 success-text-emphasis bg-success-subtle border border-success-subtle rounded-3" style="text-align: center;">Resolution History</h3><br>
+  <h3 class="p-1 success-text-emphasis bg-success-subtle border border-success-subtle rounded-3" style="text-align: center; overflow: hidden;">Resolution History</h3><br>
   {% if updated_ticket %}
   <div>&nbsp;
     <b>On {{ ticket.created_at.strftime("%a, %d %b %Y %H:%M") }}, you
@@ -27,8 +27,8 @@
     {{ ticket.description }}</div><br>
   {% endif %}
 </div><br>
-  <a class="btn btn-primary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black; margin-left: 2em; margin-right: 10em;">Update this ticket</a>
-  <a class="btn btn-primary" href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}" style="background-color:#FF5A5F; border-radius: 20px; color:black">Withdraw this ticket</a>
+  <a class="btn btn-secondary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black; margin-left: 2em; margin-right: 10em;">Update this ticket</a>
+  <a class="btn btn-secondary" href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}" style="background-color:#FF5A5F; border-radius: 20px; color:black">Withdraw this ticket</a>
 
   <div><br>
     <ul style="list-style-type: none;">

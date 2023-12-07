@@ -1,3 +1,4 @@
+"""Instantiates the Blueprint and defines the views for app users."""
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from app import db, mail
 from app.users.forms import RegisterForm, SigninForm, RequestResetForm, ResetPasswordForm 
@@ -13,6 +14,9 @@ users = Blueprint("users", __name__)
 
 @users.route("/register", methods=["GET", "POST"], strict_slashes=False)
 def register():
+    """Defines the logic for user registration
+       and returns the user registration page.
+    """
     if current_user.is_authenticated:
         return redirect(url_for("main.home"))
     form = RegisterForm()
@@ -31,6 +35,9 @@ def register():
 
 @users.route("/sign_in", methods=["GET", "POST"], strict_slashes=False)
 def sign_in():
+    """Defines the logic for user login
+       and returns the user login page.
+    """
     if current_user.is_authenticated:
         return redirect(url_for("main.home"))
     form = SigninForm()
@@ -49,11 +56,15 @@ def sign_in():
 
 @users.route("/sign_out", strict_slashes=False)
 def sign_out():
+    """Defines the logic for user logout
+       and redirects the user to the home page.
+    """
     logout_user()
     return redirect(url_for("main.home"))
 
 
 def send_reset_email(user):
+    """Sends the reset password email to user."""
     token = user.get_reset_token()
     msg = Message("Password Reset Request",
                   sender="noreply@custopedia.com",
@@ -68,6 +79,7 @@ If you did not make this request, simply ignore this email and no changes will b
 
 @users.route("/reset_password", methods=["GET", "POST"])
 def reset_request():
+    """Returns the request password reset page."""
     if current_user.is_authenticated:
         return redirect(url_for("main.home"))
     form = RequestResetForm()
@@ -84,6 +96,7 @@ def reset_request():
 
 @users.route("/reset_password/<token>", methods=["GET", "POST"])
 def reset_token(token):
+    """Returns the reset password page."""
     if current_user.is_authenticated:
         return redirect(url_for("main.home"))
     user = User.verify_reset_token(token)

@@ -1,3 +1,4 @@
+"""Instantiates the Blueprint and defines the views for app tickets."""
 import os
 from flask import render_template, url_for, flash, redirect, \
     current_app, send_file, Blueprint
@@ -16,6 +17,9 @@ tickets = Blueprint("tickets", __name__)
 @tickets.route("/new_ticket", methods=["GET", "POST"], strict_slashes=False)
 @login_required
 def new_ticket():
+    """Defines the logic for user ticket creation
+       and returns the create ticket page.
+    """
     form = NewticketForm()
     if form.validate_on_submit():
         ticket = Ticket(title=form.title.data,
@@ -45,13 +49,15 @@ def new_ticket():
 @tickets.route("/ticket_history", strict_slashes=False)
 @login_required
 def ticket_history():
-        tickets = Ticket.query.all()
-        return render_template("ticket_history.html",
+    """Returns the tickets history/list page."""
+    tickets = Ticket.query.all()
+    return render_template("ticket_history.html",
                                title="Ticket History", tickets=tickets)
 
 @tickets.route("/ticket_history/<int:ticket_id>", strict_slashes=False)
 @login_required
 def view_ticket(ticket_id):
+    """Returns the page for a ticket identified by a given ticket id."""
     ticket = Ticket.query.get_or_404(ticket_id)
     try:
         updated_ticket = UpdatedTicket.query.get(ticket_id)
@@ -67,6 +73,9 @@ def view_ticket(ticket_id):
                methods=["GET", "POST"], strict_slashes=False)
 @login_required
 def update_ticket(ticket_id):
+    """Defines the logic for updating a ticket
+       and returns the update ticket page.
+    """
     ticket = Ticket.query.get_or_404(ticket_id)
     form = UpdateticketForm()
     if form.validate_on_submit():
@@ -91,6 +100,9 @@ def update_ticket(ticket_id):
                methods=["GET", "POST"], strict_slashes=False)
 @login_required
 def resolve_ticket(ticket_id):
+    """Defines the logic for withdrawing/resolving a ticket
+       and returns the resolve ticket page.
+    """
     ticket = Ticket.query.get_or_404(ticket_id)
     form = UpdateticketForm()
     if form.validate_on_submit():
@@ -113,6 +125,7 @@ def resolve_ticket(ticket_id):
 @tickets.route("/file_attachments/<file>", strict_slashes=False)
 @login_required
 def view_file(file):
+    """Returns a page displaying the file attachment queried by the user."""
     try:
         return send_file(os.path.join(current_app.root_path, "static/user_file_attachments", file))
     except Exception as e:
@@ -120,6 +133,7 @@ def view_file(file):
 
 
 def save_file(form_file):
+    """Defines the logic to save a file attached by the user in the ticket."""
     fn = form_file.filename
     file_path = os.path.join(current_app.root_path, "static/user_file_attachments", fn)
     form_file.save(file_path)
@@ -127,6 +141,9 @@ def save_file(form_file):
 
 
 def send_new_ticket_email(user, ticket):
+    """Sends an email to the user to notify
+       them of the ticket they just raised.
+    """
     msg = Message(subject="{}: Ticket number {}".format(ticket.title, ticket.id),
                 sender="support@custopedia.com",
                 recipients=[user.email])
@@ -140,6 +157,9 @@ def send_new_ticket_email(user, ticket):
 
 
 def send_ticket_feedback_email(user, ticket):
+    """Sends an email to the user to notify
+       them that a ticket has been updated.
+    """
     msg = Message(subject="{}: Ticket number {}".format(ticket.title, ticket.id),
                 sender="support@custopedia.com",
                 recipients=[user.email])

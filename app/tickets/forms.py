@@ -1,3 +1,4 @@
+"""Defines classes for ticket forms for the app."""
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, SelectField
 from flask_wtf.file import FileField, FileAllowed
@@ -5,6 +6,7 @@ from wtforms.validators import DataRequired
 
 
 class NewticketForm(FlaskForm):
+	"""Represents the new ticket form."""
 	title = StringField("Title*", validators=[DataRequired()])
 	incident_type = SelectField("Incident type*",
 							 choices=["Service request", \
@@ -21,6 +23,7 @@ class NewticketForm(FlaskForm):
 
 
 class UpdateticketForm(FlaskForm):
+	"""Represents the update ticket form."""
 	description = TextAreaField("Description*", validators=[DataRequired()])
 	file_attachments = FileField("Attach document",
 							  validators=[FileAllowed(["pdf", "jpg", "png"])])

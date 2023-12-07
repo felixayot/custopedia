@@ -1,3 +1,4 @@
+"""Defines instances of the classes implemented in the flask app."""
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
@@ -15,6 +16,7 @@ mail = Mail()
 
 
 def create_app(config_class=Config):
+    """Defines the logic to instantiate the flask app."""
     app = Flask(__name__)
     app.config.from_object(config_class)
 

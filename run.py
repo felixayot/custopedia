@@ -1,3 +1,4 @@
+"""Runs the instance of a created app."""
 from custopedia import app
 
 

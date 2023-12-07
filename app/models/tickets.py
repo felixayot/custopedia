@@ -1,8 +1,10 @@
+"""Defines ticket model for the app."""
 from app import db
 from datetime import datetime
 
 
 class Ticket(db.Model):
+    """Represents a ticket in the app."""
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(45), index=True, nullable=False)
     incident_type = db.Column(db.String(45), index=True, nullable=False)
@@ -20,5 +22,8 @@ class Ticket(db.Model):
                                      overlaps="updated, original_ticket")
 
     def __repr__(self):
+        """Returns the official string representation of an instance
+           of the Ticket class.
+        """
         return ("***Ticket Number: {}***\n***Title: {}***"
                 .format(self.id, self.title))
