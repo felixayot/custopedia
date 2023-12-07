@@ -1,6 +1,6 @@
 # Project Custopedia
 ## Background information
-This project is my portfolio project built during my leaning journey in the [ALX]() Software Engineering programme to showcase my skills gained thus far. This project summarizes my ability to execute a complete Software Development Cycle stages. I handled the Planning, Development/Building, Testing, Deployment, Testing and Production as well as future Maintenance of this awesome software application.
+This project is my portfolio project built during my learning journey in the [ALX](https://www.alxafrica.com) Software Engineering programme to showcase my skills gained thus far. This project summarizes my ability to execute a complete Software Development Cycle stages. I handled the Planning, Development/Building, Testing, Deployment, Testing and Production as well as future Maintenance of this awesome software application.
 
 [Custopedia](www.custopedia.tech) is a customer online support tool for users that consume a given organization's products and services. It's core features include:
   - Knowledge base in a Q & A manner

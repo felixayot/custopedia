@@ -1,4 +1,4 @@
-"""Runs the instance of a created app."""
+"""Runs an instance of the created app."""
 from custopedia import app
 
 
