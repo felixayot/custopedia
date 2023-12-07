@@ -27,7 +27,7 @@
     {{ ticket.description }}</div><br>
   {% endif %}
 </div><br>
-  <a class="btn btn-secondary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black; margin-left: 2em; margin-right: 10em;">Update this ticket</a>
+  <a class="btn btn-secondary" href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" style="background-color:aquamarine; border-radius: 20px; color:black; margin-left: 2em; margin-right: 10vw;">Update this ticket</a>
   <a class="btn btn-secondary" href="{{ url_for('tickets.resolve_ticket', ticket_id=ticket.id) }}" style="background-color:#FF5A5F; border-radius: 20px; color:black">Withdraw this ticket</a>
 
   <div><br>

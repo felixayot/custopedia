@@ -2,7 +2,7 @@
 ## Background information
 This project is my portfolio project built during my learning journey in the [ALX](https://www.alxafrica.com) Software Engineering programme to showcase my skills gained thus far. This project summarizes my ability to execute a complete Software Development Cycle stages. I handled the Planning, Development/Building, Testing, Deployment, Testing and Production as well as future Maintenance of this awesome software application.
 
-[Custopedia](www.custopedia.tech) is a customer online support tool for users that consume a given organization's products and services. It's core features include:
+[Custopedia](https://www.custopedia.tech) is a customer online support tool for users that consume a given organization's products and services. It's core features include:
   - Knowledge base in a Q & A manner
   - Raise an issue with a ticket custom-tailored to the concerned department of that institution as opposed to the usual  general customer care desk.
   - Live chat bot with realtime responses(Still a WIP).
@@ -12,7 +12,7 @@ More details on the inspiration to this project as well as a detailed tech stack
 - [MVP Specification](https://github.com/felixayot/ALX_SE_important_concepts/blob/master/custopedia_mvp_specification.md)
 
 ## Tech stack overview
-Below is a brief overview of the tech stack levereged to bring [Custopedia](custopedia.tech) to life.
+Below is a brief overview of the tech stack levereged to bring [Custopedia](https://custopedia.tech) to life.
 ### Frontend
 
 - `Jinja2` templating
