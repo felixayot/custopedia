@@ -7,13 +7,13 @@ This project is my portfolio project built during my learning journey in the [AL
   - Raise an issue with a ticket custom-tailored to the concerned department of that institution as opposed to the usual  general customer care desk.
   - Live chat bot with realtime responses(Still a WIP).
 
-![Custopedia home page](home_page.png)
+![Custopedia home page](assets/home_page.png)
 
 Browse it [here](https://www.custopedia.tech) to experience more of it's features and functionalities.
 
 More details on the inspiration to this project as well as a detailed tech stack leveraged, visit the below links where I wrote a blog on my journey and experience on this project.
-- [Project proposal](https://github.com/felixayot/ALX_SE_important_concepts/blob/master/custopedia.md)
-- [MVP Specification](https://github.com/felixayot/ALX_SE_important_concepts/blob/master/custopedia_mvp_specification.md)
+- [Medium](https://github.com/felixayot/ALX_SE_important_concepts/blob/master/custopedia.md)
+- [LinkedIn](https://github.com/felixayot/ALX_SE_important_concepts/blob/master/custopedia_mvp_specification.md)
 
 ## Tech stack overview
 Below is a brief overview of the tech stack levereged to bring [Custopedia](https://custopedia.tech) to life.
@@ -27,7 +27,7 @@ Below is a brief overview of the tech stack levereged to bring [Custopedia](http
 
 - `Flask-Python3`
 - `SQLite` for development and `MySQL` for production.
-- `nginx` webserver for static data and `gunicorn` for the serving the dynamic application contents.
+- `nginx` webserver for static data and `gunicorn` for serving the dynamic application contents.
 
 
 # Installation
@@ -44,7 +44,7 @@ Clone the repository to your local terminal, Ubuntu 20.04 LTS remember, then cre
 `Python3 -m venv venv` then launch that virtual environment while you're in the repo's root directory with this command:
 `source venv/bin/activate`. You'll need this virtual environment to run the application successfully with all it's required packages without affecting any of your previously globally installed packages in your local machine.
 #### NOTE:
-You will have have to configure the environment variables with your own values in order to run the application. 
+You will have to configure the environment variables with your own values in order to run the application. 
 
 Once you're in the virtual environment, you can install the rest of the packages required to run the application located in the `requirements.txt` file. Use this command:
 `pip install -r requirements.txt` 
