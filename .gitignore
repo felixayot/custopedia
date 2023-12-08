@@ -1,4 +1,4 @@
-# Ignore these files, directories, sub-driectories and files there in
+# Ignore these files, directories, sub-directories and files there in
 custenv/
 .env
 __pycache__/
