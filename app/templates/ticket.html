@@ -53,13 +53,13 @@
       <li><b>Incident type:</b>&emsp;{{ ticket.incident_type }}</li>
       {% if ticket.file_attachments %}
       <li><b>Attached documents:</b>&emsp;<a href="{{ url_for('tickets.view_file', file=ticket.file_attachments) }}">{{ ticket.file_attachments }}</a></li>
+      {% endif %}
       {% if ticket.updated %}
       {% for fn in ticket.updated %}
       {% if fn.file_attachments %}
       <li><b>Attached documents:</b>&emsp;<a href="{{ url_for('tickets.view_file', file=fn.file_attachments) }}">{{ fn.file_attachments }}</a></li>
       {% endif %}
       {% endfor %}
-      {% endif %}
       {% endif %}
     </ul>
   </div>
