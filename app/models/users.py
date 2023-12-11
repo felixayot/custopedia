@@ -26,7 +26,7 @@ class User(UserMixin, db.Model):
                 .format(self.first_name, self.last_name, self.email))
     
     def get_reset_token(self, expires_sec=1800):
-        """Creates and sends a unique password reset token to a user."""
+        """Creates a unique password reset token to a user."""
         s = Serializer(current_app.config["SECRET_KEY"], expires_sec)
         return s.dumps({"user_id": self.id}).decode("utf-8")
 

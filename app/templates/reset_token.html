@@ -17,7 +17,7 @@
                 {% else %}
                 {{ form.password(class="form-control form-control-lg") }}
                 {% endif %}
-            </div>
+            </div><br>
             <div class="form-group" style="margin-left: 2em; width: 60vw;">
                 {{ form.confirm_password.label(class="form-control-label") }}
                 {% if form.confirm_password.errors %}
@@ -31,7 +31,7 @@
                 {{ form.confirm_password(class="form-control form-control-lg") }}
                 {% endif %}
             </div>
-        </fieldset>
+        </fieldset><br>
         <div class="form-group" style="margin-left: 2em;">
             {{ form.submit(class="btn btn-outline-info") }}
         </div>
