@@ -6,6 +6,7 @@ tmp/
 custopedia.db
 dropdb
 migratedb
+runtests
 main.scss
 main.css.map
 reset.css
