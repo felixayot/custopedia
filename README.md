@@ -16,7 +16,7 @@ More details on the inspiration to this project as well as a detailed tech stack
 - [LinkedIn](https://github.com/felixayot/ALX_SE_important_concepts/blob/master/custopedia_mvp_specification.md)
 
 ## Tech stack overview
-Below is a brief overview of the tech stack levereged to bring [Custopedia](https://custopedia.tech) to life.
+Below is a brief overview of the tech stack leveraged to bring [Custopedia](https://custopedia.tech) to life.
 ### Frontend
 
 - `Jinja2` templating
