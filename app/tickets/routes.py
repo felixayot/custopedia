@@ -141,15 +141,16 @@ def save_file(form_file):
 
 
 def send_new_ticket_email(user, ticket):
-    """Sends an email to the user to notify
-       them of the ticket they just raised.
+    """
+    Sends an email to the user to notify
+    them of the ticket they just raised.
     """
     msg = Message(subject="{}: Ticket number {}".format(ticket.title, ticket.id),
                 sender="support@custopedia.com",
                 recipients=[user.email])
     msg.body = f"""Your ticket has been submitted successfully with reference number #{ticket.id}. 
-    Our team will work on it within 48 hours. You can track it's progress here 
-    {url_for("tickets.ticket_history", _external=True)}
+
+Our team will work on it within 48 hours. You can track it's progress here {url_for("tickets.ticket_history", _external=True)}
 
 """
     mail.send(msg)
@@ -162,8 +163,9 @@ def send_ticket_feedback_email(user, ticket):
     msg = Message(subject="{}: Ticket number {}".format(ticket.title, ticket.id),
                 sender="support@custopedia.com",
                 recipients=[user.email])
-    msg.body = f"""Your ticket with reference number #{ticket.id} has an update. Find more details 
-    here {url_for("tickets.view_ticket, ticket_id=ticket.id", _external=True)}
+    msg.body = f"""Your ticket with reference number #{ticket.id} has an update.
+
+Find more details here {url_for("tickets.view_ticket, ticket_id=ticket.id", _external=True)}
 
 """
     mail.send(msg)
