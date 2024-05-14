@@ -1,5 +1,6 @@
 """Instantiates the Blueprint and defines the views for app tickets."""
 import os
+import secrets
 from flask import render_template, url_for, flash, redirect, \
     current_app, send_file, Blueprint
 from app import db, mail
@@ -134,10 +135,18 @@ def view_file(file):
 
 def save_file(form_file):
     """Defines the logic to save a file attached by the user in the ticket."""
+    if form_file.content_length > 10 * 1024 * 1024:
+        raise ValueError("File too large")
     fn = form_file.filename
-    file_path = os.path.join(current_app.root_path, "static/user_file_attachments", fn)
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(fn)
+    f_ext_lower = f_ext.lower()
+    if f_ext_lower[1:] not in ["pdf", "png", "jpg", "jpeg", "doc", "docx"]:
+        raise ValueError("Invalid file type")
+    secure_fn = random_hex + f_ext_lower
+    file_path = os.path.join(current_app.root_path, "static/user_file_attachments", secure_fn)
     form_file.save(file_path)
-    return fn
+    return secure_fn
 
 
 def send_new_ticket_email(user, ticket):
